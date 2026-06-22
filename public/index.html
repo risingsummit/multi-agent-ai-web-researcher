@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-Agent AI Web Researcher</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="search-pane" aria-label="Research query">
+        <div class="brand-row">
+          <div class="mark" aria-hidden="true">MA</div>
+          <div>
+            <h1>Multi-Agent Researcher</h1>
+            <p>Live web search, agent tracing, cited synthesis.</p>
+          </div>
+        </div>
+
+        <form id="research-form" class="query-form">
+          <label for="query">Question</label>
+          <textarea id="query" name="query" rows="5" placeholder="Ask a research question that needs current sources...">What are the newest developments in AI-powered search engines?</textarea>
+
+          <div class="controls">
+            <label>
+              <span>Depth</span>
+              <select id="depth" name="depth">
+                <option value="standard">Standard</option>
+                <option value="deep">Deep</option>
+              </select>
+            </label>
+            <label>
+              <span>Freshness</span>
+              <select id="freshness" name="freshness">
+                <option value="current">Current</option>
+                <option value="recent">Recent</option>
+              </select>
+            </label>
+          </div>
+
+          <button class="primary-button" type="submit">
+            <span>Run Research</span>
+            <span aria-hidden="true">-></span>
+          </button>
+        </form>
+
+        <div class="status-strip">
+          <div>
+            <span class="status-label">Provider</span>
+            <strong id="provider">Checking...</strong>
+          </div>
+          <div>
+            <span class="status-label">Synthesis</span>
+            <strong id="llm">Checking...</strong>
+          </div>
+        </div>
+
+        <section class="history-panel" aria-label="Research history">
+          <div class="section-heading">
+            <h2>History</h2>
+          </div>
+          <div id="history" class="history-list">
+            <p class="muted">Completed research will appear here.</p>
+          </div>
+        </section>
+      </section>
+
+      <section class="results-pane" aria-live="polite">
+        <div id="empty-state" class="empty-state">
+          <h2>Ready to research</h2>
+          <p>Ask a question and the agents will plan searches, inspect sources, synthesize an answer, and verify citations.</p>
+        </div>
+
+        <div id="loading-state" class="loading-state hidden">
+          <div class="pulse"></div>
+          <div>
+            <h2>Agents are working</h2>
+            <p id="loading-copy">Planning searches...</p>
+          </div>
+        </div>
+
+        <article id="answer-card" class="answer-card hidden">
+          <div class="answer-header">
+            <div>
+              <span class="eyebrow">Sourced Answer</span>
+              <h2 id="answer-title">Research brief</h2>
+            </div>
+            <div class="answer-actions">
+              <span id="elapsed" class="elapsed"></span>
+              <button id="export-markdown" class="ghost-button" type="button">Export</button>
+              <button id="clear-view" class="ghost-button" type="button">Clear</button>
+            </div>
+          </div>
+          <div id="answer" class="answer"></div>
+        </article>
+
+        <section id="trace-card" class="trace-card hidden">
+          <h2>Agent Trace</h2>
+          <div id="trace" class="trace-list"></div>
+        </section>
+
+        <section id="sources-card" class="sources-card hidden">
+          <h2>Sources</h2>
+          <div id="sources" class="sources-list"></div>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

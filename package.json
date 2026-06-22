@@ -1,0 +1,14 @@
+{
+  "name": "multi-agent-ai-web-researcher",
+  "version": "1.0.0",
+  "description": "A Perplexity-style multi-agent AI web researcher with live search providers and citations.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
