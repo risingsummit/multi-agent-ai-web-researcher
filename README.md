@@ -36,6 +36,16 @@ Open [http://localhost:8787](http://localhost:8787).
 - Local-first persistence for previous research runs
 - Citation-first answer rendering with source metadata and Markdown export
 
+## Landing Page
+
+This repository includes a static portfolio landing page in `docs/` for GitHub Pages.
+
+After enabling GitHub Pages from the `main` branch and `/docs` folder, the showcase page will be available at:
+
+```text
+https://risingsummit.github.io/multi-agent-ai-web-researcher/
+```
+
 ## Search Providers
 
 Set `SEARCH_PROVIDER` in `.env` and provide the matching key:

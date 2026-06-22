@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-Agent AI Web Researcher</title>
+    <meta name="description" content="A Perplexity-style multi-agent research engine with live search, cited synthesis, streaming progress, source ranking, and local research history.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Multi-Agent AI Web Researcher">
+        <span class="brand-mark">MA</span>
+        <span>Multi-Agent Researcher</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#run">Run</a>
+        <a class="nav-button" href="https://github.com/risingsummit/multi-agent-ai-web-researcher">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-powered research engine</p>
+          <h1>Perplexity-style web research with multi-agent orchestration and cited answers.</h1>
+          <p class="hero-text">
+            A lightweight full-stack JavaScript project that plans searches, gathers live web sources, reads pages,
+            synthesizes supported answers, audits citations, and saves research history.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="https://github.com/risingsummit/multi-agent-ai-web-researcher">View Repo</a>
+            <a class="secondary-action" href="#run">Run Locally</a>
+          </div>
+        </div>
+
+        <div class="product-preview" aria-label="Application preview">
+          <div class="preview-sidebar">
+            <div class="preview-logo">MA</div>
+            <div class="preview-query">
+              <span>Question</span>
+              <strong>What are the newest developments in AI-powered search engines?</strong>
+            </div>
+            <div class="preview-controls">
+              <span>Standard</span>
+              <span>Current</span>
+            </div>
+            <div class="preview-status">
+              <span>Provider</span>
+              <strong>Live search</strong>
+            </div>
+          </div>
+          <div class="preview-main">
+            <div class="preview-answer">
+              <span class="eyebrow">Sourced Answer</span>
+              <h2>Research brief</h2>
+              <p>Search agents gathered source candidates, reader agents ranked evidence, and synthesis generated a cited answer.</p>
+              <ul>
+                <li>Streaming progress shows each agent stage as it completes. <b>[1]</b></li>
+                <li>Source ranking highlights primary, reference, and web sources. <b>[2]</b></li>
+                <li>Markdown export turns finished research into a shareable brief. <b>[3]</b></li>
+              </ul>
+            </div>
+            <div class="preview-grid">
+              <div><strong>Planner</strong><span>Query expansion</span></div>
+              <div><strong>Search</strong><span>Provider adapters</span></div>
+              <div><strong>Reader</strong><span>Page extraction</span></div>
+              <div><strong>Auditor</strong><span>Citation checks</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Feature set</p>
+          <h2>Built like a real research workflow, not a single prompt wrapper.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span>01</span>
+            <h3>Multi-agent pipeline</h3>
+            <p>Planner, search, reader, synthesis, and citation auditor stages create a traceable research process.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Live search providers</h3>
+            <p>Adapters support Tavily, Brave Search, Bing Web Search, SerpAPI, and a no-key Wikipedia fallback.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Cited synthesis</h3>
+            <p>Answers are rendered with numbered source citations and a source panel for quick evidence review.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Streaming UX</h3>
+            <p>The UI receives newline-delimited JSON events so users can see progress while agents work.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Research history</h3>
+            <p>Completed runs are stored locally and can be reopened from the sidebar.</p>
+          </article>
+          <article>
+            <span>06</span>
+            <h3>Markdown export</h3>
+            <p>Finished briefs can be exported for notes, sharing, or portfolio demos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="section split-section">
+        <div>
+          <p class="eyebrow">Architecture</p>
+          <h2>Simple Node backend, static frontend, provider-based search layer.</h2>
+          <p>
+            The project avoids framework overhead while still demonstrating production-shaped concerns: provider
+            abstraction, streaming responses, history persistence, source scoring, environment-based configuration,
+            and a clean browser UI.
+          </p>
+        </div>
+        <ol class="agent-list">
+          <li><strong>Planner Agent</strong><span>Turns a user question into targeted search tasks.</span></li>
+          <li><strong>Search Agent</strong><span>Queries the configured real-time web search provider.</span></li>
+          <li><strong>Reader Agent</strong><span>Fetches readable page text and enriches source metadata.</span></li>
+          <li><strong>Synthesis Agent</strong><span>Writes a concise answer from the gathered sources.</span></li>
+          <li><strong>Citation Auditor</strong><span>Verifies cited source IDs before rendering the result.</span></li>
+        </ol>
+      </section>
+
+      <section id="run" class="section run-section">
+        <div>
+          <p class="eyebrow">Run locally</p>
+          <h2>Clone, configure, and start the app.</h2>
+        </div>
+        <pre><code>git clone https://github.com/risingsummit/multi-agent-ai-web-researcher.git
+cd multi-agent-ai-web-researcher
+copy .env.example .env
+npm start</code></pre>
+        <p class="note">
+          Add a search API key for live web providers, or use the built-in Wikipedia fallback for a no-key demo.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Multi-Agent AI Web Researcher</span>
+      <a href="https://github.com/risingsummit/multi-agent-ai-web-researcher">GitHub Repository</a>
+    </footer>
+  </body>
+</html>
